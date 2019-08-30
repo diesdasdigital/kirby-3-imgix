@@ -2,6 +2,12 @@
 
 This plugin serves all images via [imgix](https://imgix.com/).
 
+## Installation
+
+```bash
+composer require diesdasdigital/imgix
+```
+
 ## Configuration
 
 In any config file or the default `site/config/config.php`:
