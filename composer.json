@@ -1,6 +1,6 @@
 {
-  "name": "diesdasdigital/imgix",
-  "description": "diesdas.digital imgix",
+  "name": "diesdasdigital/kirby-3-imgix",
+  "description": "Kirby 3 imgix plugin",
   "type": "kirby-plugin",
   "license": "MIT",
   "authors": [
