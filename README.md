@@ -5,7 +5,7 @@ This plugin serves all images via [imgix](https://imgix.com/).
 ## Installation
 
 ```bash
-composer require diesdasdigital/imgix
+composer require diesdasdigital/kirby-3-imgix
 ```
 
 ## Configuration
