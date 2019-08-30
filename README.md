@@ -1,6 +1,6 @@
 # Kirby 3 imgix plugin
 
-This plugin serves all images via [imgix](https://imgix.com/).
+If this plugin gets activated, it will serve all images via [imgix](https://imgix.com/).
 
 ## Installation
 
