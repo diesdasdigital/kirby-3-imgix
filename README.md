@@ -14,7 +14,7 @@ In any config file or the default `site/config/config.php`:
 ```php
 return [
   'imgix' => true,
-  'imgix.domain' => 'https://project-name.imgix.net',
+  'imgix.domain' => 'https://project-name.imgix.net/',
   'imgix.defaults' => [
     'auto' => 'compress',
   ],
