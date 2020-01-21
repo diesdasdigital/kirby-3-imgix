@@ -40,7 +40,7 @@ Since version `1.1.0` support for Kirby’s built-in `srcset()` method is improv
 `w` and `h` parameters instead of width and height.
 
 ```php
-$page->someImage()->toFile()->srcset()
+$page->someImage()->toFile()->srcset([300, 800, 1024])
 
 // with additional parameters
 $page->someImage()->toFile()->srcset([
