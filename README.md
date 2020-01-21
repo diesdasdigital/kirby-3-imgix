@@ -1,4 +1,4 @@
-# Kirby 3 imgix plugin
+# Kirby 3 imgix plugin [![Version](https://img.shields.io/packagist/v/diesdasdigital/kirby-3-imgix.svg)](https://packagist.org/packages/diesdasdigital/kirby-3-imgix)
 
 If this plugin gets activated, it will serve all images via [imgix](https://imgix.com/).
 
@@ -14,7 +14,7 @@ In any config file or the default `site/config/config.php`:
 ```php
 return [
   'imgix' => true,
-  'imgix.domain' => 'https://project-name.imgix.net',
+  'imgix.domain' => 'https://project-name.imgix.net/',
   'imgix.defaults' => [
     'auto' => 'compress',
   ],
@@ -34,6 +34,24 @@ $page->someImage()->image()->thumb([
   'blur' => '10',
   'con' => '40',
 ])->url();
+```
+
+Since version `1.1.0` support for Kirby’s built-in `srcset()` method is improved to automatically use imgix’s
+`w` and `h` parameters instead of width and height.
+
+```php
+$page->someImage()->toFile()->srcset()
+
+// with additional parameters
+$page->someImage()->toFile()->srcset([
+  300 => [
+    'width' => 300,
+    'crop' => 'top,left'
+  ],
+  500 => [
+    'width' => 500
+  ]
+])
 ```
 
 See [imgix API reference](https://docs.imgix.com/apis/url) for all options.

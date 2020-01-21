@@ -23,8 +23,16 @@ function imgix($url, $params = [])
     $params  = array_merge($defaults, $params);
     $options = [];
 
+    $map = [
+        'width'   => 'w',
+        'height'  => 'h',
+    ];
+
     foreach ($params as $key => $value) {
-        if (!empty($value)) {
+        if (isset($map[$key]) && !empty($value)) {
+            $options[] = $map[$key] . '=' . $value;
+        }
+        elseif (!isset($map[$key]) && !empty($value)) {
             $options[] = $key . '=' . $value;
         }
     }
