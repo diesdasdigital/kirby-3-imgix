@@ -4,6 +4,10 @@ use Kirby\Cms\App;
 use Kirby\Cms\File;
 use Kirby\Cms\FileVersion;
 
+function endsWith($haystack, $needle) {
+    return substr($haystack,-strlen($needle))===$needle;
+}
+
 function imgix($url, $params = [])
 {
     if (is_object($url) === true) {
@@ -11,10 +15,10 @@ function imgix($url, $params = [])
     }
 
     // always convert urls to path
-    $url = Url::path($url);
+    $path = Url::path($url);
 
     // return the plain url if imgix is deactivated
-    if (option('imgix', false) === false or option('imgix.domain', false) === false) {
+    if (option('imgix', false) === false or option('imgix.domain', false) === false or endsWith($url, '.gif')) {
         return $url;
     }
 
@@ -39,7 +43,7 @@ function imgix($url, $params = [])
 
     $options = implode('&', $options);
 
-    return option('imgix.domain') . $url . '?' . $options;
+    return option('imgix.domain') . $path . '?' . $options;
 }
 
 Kirby::plugin('diesdasdigital/imgix', [

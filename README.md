@@ -1,6 +1,6 @@
 # Kirby 3 imgix plugin [![Version](https://img.shields.io/packagist/v/diesdasdigital/kirby-3-imgix.svg)](https://packagist.org/packages/diesdasdigital/kirby-3-imgix)
 
-If this plugin gets activated, it will serve all images via [imgix](https://imgix.com/).
+If this plugin gets activated, it will serve all images (except for gifs) via [imgix](https://imgix.com/).
 
 ## Installation
 
@@ -11,6 +11,7 @@ composer require diesdasdigital/kirby-3-imgix
 ## Configuration
 
 In any config file or the default `site/config/config.php`:
+
 ```php
 return [
   'imgix' => true,
