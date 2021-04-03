@@ -57,6 +57,15 @@ $page->someImage()->toFile()->srcset([
 
 See [imgix API reference](https://docs.imgix.com/apis/url) for all options.
 
+## imgIX Source Configuration
+
+If you're new to imgIX, you will have to do a few extra steps:
+- [Sign up for an account](https://dashboard.imgix.com/sign-up)
+- Set up a new source:
+  - Pick a subdomain you want you're assets to be referred to.
+  - Choose the setting which fits with your server setup (Webfolder if you use default kirby settings ☺️)
+  - Add the webfolder url (for Kirby this will be: project-name.com/)
+
 ---
 
 Inspired by Kirby’s website, which uses a [custom cloudinary plugin](https://github.com/getkirby/getkirby.com/blob/master/site/plugins/cloudinary/index.php).
