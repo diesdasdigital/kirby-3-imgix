@@ -1,15 +1,24 @@
 <?php
+require(__DIR__ . '/vendor/autoload.php');
 
 use Kirby\Cms\App;
 use Kirby\Cms\File;
 use Kirby\Cms\FileVersion;
+use Imgix\UrlBuilder;
 
-function endsWith($haystack, $needle) {
-    return substr($haystack,-strlen($needle))===$needle;
+function endsWith($haystack, $needle)
+{
+    return substr($haystack, -strlen($needle)) === $needle;
 }
 
 function imgix($url, $params = [])
 {
+    $builder = new UrlBuilder(option('imgix.domain'));
+
+    if (option('imgix.secure_token')) {
+        $builder->setSignKey(option('imgix.secure_token'));
+    }
+
     if (is_object($url) === true) {
         $url = $url->url();
     }
@@ -34,16 +43,13 @@ function imgix($url, $params = [])
 
     foreach ($params as $key => $value) {
         if (isset($map[$key]) && !empty($value)) {
-            $options[] = $map[$key] . '=' . $value;
-        }
-        elseif (!isset($map[$key]) && !empty($value)) {
-            $options[] = $key . '=' . $value;
+            $options[$map[$key]] = $value;
+        } elseif (!isset($map[$key]) && !empty($value)) {
+            $options[$key] = $value;
         }
     }
 
-    $options = implode('&', $options);
-
-    return option('imgix.domain') . $path . '?' . $options;
+    return $builder->createURL($path, $params);
 }
 
 Kirby::plugin('diesdasdigital/imgix', [

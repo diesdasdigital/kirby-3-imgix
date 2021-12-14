@@ -11,7 +11,8 @@
     }
   ],
   "require": {
-    "getkirby/composer-installer": "^1.1"
+    "getkirby/composer-installer": "^1.1",
+    "imgix/imgix-php": "^3.3"
   },
   "extra": {
     "installer-name": "imgix"
