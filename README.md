@@ -15,10 +15,13 @@ In any config file or the default `site/config/config.php`:
 ```php
 return [
   'imgix' => true,
-  'imgix.domain' => 'https://project-name.imgix.net/',
+  'imgix.domain' => 'example.imgix.net',
+  'imgix.secure_token' => 'examplekey', // https://docs.imgix.com/setup/securing-images
   'imgix.defaults' => [
     'auto' => 'compress',
-  ],
+    'q' => 90,
+    'lossless' => 1
+  ]
 ];
 ```
 
